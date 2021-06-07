@@ -49,7 +49,7 @@ public final class ReadFile {
 
         if (files != null && !files.isEmpty()) {
             for (File file : files) {
-                logger.info("Reading file.");
+                logger.info("Reading file from " + dirOrFilePath);
                 //read file into stream, try-with-resources
                 try (Stream<String> stream = Files.lines(Paths.get(file.getAbsolutePath()))) {
                     logDetailList.addAll(stream.parallel()
@@ -97,7 +97,8 @@ public final class ReadFile {
             //Check if the provided file/directory path is present if not exit.
             if (!isExists) {
                 throw FilePathNotFound.builder()
-                        .message("The provided file/directory path does not exist ").build();
+                        .message("The provided file/directory path does not exist "
+                                + dirOrFilePath).build();
             }
             if (isDirectory) {
                 files = getFilesFromDirectory(dirOrFilePath);
@@ -119,7 +120,7 @@ public final class ReadFile {
      */
     @SneakyThrows
     public static List<File> getFilesFromDirectory(String dirLocation) {
-        logger.debug("Getting the files from directory");
+        logger.debug("Getting the files from directory" + dirLocation);
         try (Stream<Path> stream = Files.list(Paths.get(dirLocation)).filter(s -> {
             Optional<String> extension = getExtension(s.getFileName().toString());
             return extension.isPresent() && extension.get().equals("log");

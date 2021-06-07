@@ -53,7 +53,7 @@ public final class GenerateReport {
             throw OutputFileGenerationException.builder().message("Error while storing the csv file in the output folder."
                     + e.getMessage()).build();
         }
-        logger.info("Generated Report Successfully.");
+        logger.info("Report generated successfully and saved at " + outputFilePath);
         return true;
 
     }
