@@ -1,0 +1,8 @@
+ENDPOINT,TOTAL REQUESTS,TOTAL FAILED REQUESTS,AVERAGE RESPONSE TIME(IN MS),PERCENTILE 95 (IN MS),PERCENTILE 99 (IN MS)
+api/test/{testId}/history,26842,0,2913,3688,7696
+api/test,13421,0,76,20,62
+api/test/{testId}/analysis,26842,0,38,66,117
+api/test/{testId},13421,0,18,5,30
+api/test/{testId}/reference,13421,0,82,72,1846
+api/test/{testId}/summary,26842,0,38,64,117
+api/test/{testId}/overview,26842,0,38,65,106

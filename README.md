@@ -33,13 +33,20 @@ You can run the application by running the below command.
 ```shell
 
 argument={File or Folder location where the log files are kept}
-java -jar http-req-analyser-1.0-SNAPSHOT.jar $argument
+java -jar httpRequestAnalyser-0.0.1-SNAPSHOT.jar $argument
 
 eg.
-argument="\app\files\data.log" -- a specific log file to be analysed
-argument="\app\files" -- Directory where log files are kept
+argument="\app\logfiles\data.log" -- a specific log file to be analysed
+OR
+argument="\app\logfiles" -- Directory where log files are kept
+java -jar httpRequestAnalyser-0.0.1-SNAPSHOT.jar $argument
 
-java -jar http-req-analyser-1.0-SNAPSHOT.jar $argument
+User can also add the file path property in the application.properties file
+file.path=C:\\Users\\logfiles\\data.log -- a specific log file to be analysed
+OR
+file.path=C:\\Users\\logfiles -- Directory where log files are kept
+
+java -jar httpRequestAnalyser-0.0.1-SNAPSHOT.jar
 
 ```
 
