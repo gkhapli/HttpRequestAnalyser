@@ -49,6 +49,7 @@ file.path=C:\\Users\\logfiles -- Directory where log files are kept
 java -jar httpRequestAnalyser-0.0.1-SNAPSHOT.jar
 
 ```
+The application user should have access to read/write files from/into the logfiles folder.
 
 ## Project Description
 
@@ -70,10 +71,10 @@ Tab ("\t") is used as delimiter. Description of the REQUEST log line:
 **MESSAGE** is only present when the status is “KO”<br/>
 
 The Output CSV file will be placed in the same folder where the input file/files were kept.
-If a single file is specified as a input argument, the output CSV file format would be {FileName}_output_yyyyMMddHHmmss.csv
-If a folder is specified as a output argument, the output CSV file format would be output_yyyyMMddHHmmss.csv
+If a single file is specified as a input argument, the output CSV file format would be {FileName}_output_yyyyMMddHHmmss.csv.
+If a folder is specified as a output argument, the output CSV file format would be output_yyyyMMddHHmmss.csv.
 
-The output report contains the below metrics calculated for each endpoint
+The output report contains the below metrics calculated for each endpoint.
 
 **Total requests** - This field contains all the total requests that were received for a specific endpoint.
 				 Only the records with TYPE as REQUEST will be taken into consideration.
@@ -81,7 +82,7 @@ The output report contains the below metrics calculated for each endpoint
 **Total failed requests** - This field contains the total requests that failed for a specific endpoint. The failed requests are with status KO.
 
 **Average Response Time (ms)** - This field contains the average response time for a specific endpoint. 
-For Average response time, we first calculate the execution time by subtracting the request time of end with time of start and then calculate the average for each endpoint.
+For Average response time, we first calculate the execution time and used it for calculation of average for each endpoint.
 Only the requests with status OK are considered for this calculation.
 
 **95th Percentile (ms)** - The 95th Percentile value is calculated for each specific endpoint. The Execution time values are considered for the calculation.
@@ -90,4 +91,7 @@ We are using the nearest-rank method for calculation of the Percentile value.
 **99th Percentile (ms)** - The 99th Percentile value is calculated for each specific endpoint. The Execution time values are considered for the calculation.
 We are using the nearest-rank method for calculation of the Percentile value.
 
+Note:
+**Execution Time (ms)** :- This time is the difference between the start and the end time of each request.
+Below link is referred for the Calculation of Percentile Values.
 - [Percentile] (https://en.wikipedia.org/wiki/Percentile)
